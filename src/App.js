@@ -8,31 +8,26 @@ const App = () => {
 
   const getNote = () => {
     axios
-      .get("https://notepadapi.herokuapp.com/app/notes")
+      .get("https://notepadapi.onrender.com/app/notes")
       .then((response) => setNote(response.data))
       .catch((error) => console.error(error));
   };
 
   const handleCreate = (addNote) => {
     axios
-      .post("https://notepadapi.herokuapp.com/app/notes", addNote)
+      .post("https://notepadapi.onrender.com/app/notes", addNote)
       .then(() => getNote());
   };
 
   const handleDelete = (event) => {
     axios
-      .delete(
-        `https://notepadapi.herokuapp.com/app/notes/${event.target.value}`
-      )
+      .delete(`https://notepadapi.onrender.com/app/notes/${event.target.value}`)
       .then(() => getNote());
   };
 
   const handleUpdate = (editNote) => {
     axios
-      .put(
-        `https://notepadapi.herokuapp.com/app/notes/${editNote.id}`,
-        editNote
-      )
+      .put(`https://notepadapi.onrender.com/app/notes/${editNote.id}`, editNote)
       .then(() => getNote());
   };
 
